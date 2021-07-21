@@ -1,6 +1,6 @@
 'use strict'
 
-const semver = require('semver')
+import semver from 'semver'
 
 const permanentModules = [
   'assert',
@@ -56,7 +56,7 @@ const experimentalModules = {
   diagnostics_channel: '^14.17.0 || >=15.1.0'
 }
 
-module.exports = ({ version = process.version, experimental = false } = {}) => {
+export default ({ version = process.version, experimental = false } = {}) => {
   const builtins = [...permanentModules]
 
   for (const [name, semverRange] of Object.entries(versionLockedModules)) {
